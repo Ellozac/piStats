@@ -18,7 +18,7 @@ app.post("/temps", (req, res) => {
   })
 
   gpuProcess.stdout.on("data", (data) => {
-    gpu = parseInt(gpuData.toString());
+    gpu = parseInt(data.toString());
     console.log("GPU Temperature:", gpu);
 
   })

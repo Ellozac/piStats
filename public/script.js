@@ -1,10 +1,13 @@
 function getTemps() {
   fetch("/temps", {
-    method: "POST"
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
     .then(response => response.json())
-    .then(response => {
-      console.log(response);
+    .then(data => {
+      console.log(data)
     })
 }
-setInterval(getTemps(), 3000);
+
