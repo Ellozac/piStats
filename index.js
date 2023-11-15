@@ -8,28 +8,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post("/temps", (req, res) => {
-  let gpu, cpu, containers;
-  const dockerProcess = spawn("sudo", ["docker", "ps"]);
-  const gpuProcess = spawn("/usr/bin/vcgencmd", ["measure_temp"]);
+  let cpu
   const cpuProcess = spawn("cat", ["/sys/class/thermal/thermal_zone0/temp"]);
-
-  dockerProcess.stdout.on("data", (data) => {
-    containers = data;
-  })
-
-  gpuProcess.stdout.on("data", (data) => {
-    gpu = parseInt(data.toString());
-    console.log("GPU Temperature:", gpu);
-
-  })
 
   cpuProcess.stdout.on("data", (data) => {
     cpu = parseInt(data.toString()) / 1000;
     console.log("CPU TEMP IS ", cpu)
   })
 
-  var stats = { gpu, cpu, containers };
-  res.json(stats);
+  // var stats = { gpu, cpu, containers };
+  res.json(cpu);
 });
 
 process.argv.forEach(function(val, index, array) {
