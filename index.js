@@ -8,16 +8,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.post("/temps", (req, res) => {
-  let cpu
+  var cpuTemp, gpuTemp;
   const cpuProcess = spawn("cat", ["/sys/class/thermal/thermal_zone0/temp"]);
+  const gpuProcess = spawn("/usr/bin/vcgencmd", ["measure_temp"]);
 
   cpuProcess.stdout.on("data", (data) => {
-    cpu = parseInt(data.toString()) / 1000;
-    console.log("CPU TEMP IS ", cpu)
-  })
+    cpuTemp = parseInt(data.toString()) / 1000;
+    console.log("CPU TEMP IS ", cpuTemp);
+  });
 
-  // var stats = { gpu, cpu, containers };
-  res.json(cpu);
+  gpuProcess.stdout.on("data", (data) => {
+    gpuTemp = parseFloat(data.toString().trim().replace('temp=', '').replace('\'C', ''));
+    console.log("GPU TEMP IS ", gpuTemp);
+    res.json({ cpu: cpuTemp, gpu: gpuTemp });
+  });
 });
 
 process.argv.forEach(function(val, index, array) {
