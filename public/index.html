@@ -4,21 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PiStats</title>
-  <link type="text/css" href="style.css">
+  <title>Dashboard | Pi5</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js"></script>
 </head>
 
 <body>
-  <h1>PI TEMPS</h1>
-  <h2>GPU</h2>
-  <h3 id="gputemp"></h3>
-  <br>
-  <h2>CPU</h2>
-  <h3 id="cputemp"></h3>
-  <!-- <h2>Containers</h2> --!>
-  <!-- <h3 id="containers"></h3> --!>
-	  <!-- <input id="Refresh" type="button" value="refresh" onclick="getTemps();" /> --!>
+  <nav>
+    <h1 id="heroText">RPIDash</h1>
+    <button id="loginOpen">Escalate Privelages</button>
+  </nav>
+  <div class="widget">
+    <h2 class="widgetLabel">Temperature</h2>
+    <h3 id="cputemp">↻</h3>
+  </div>
 </body>
 
 </html>

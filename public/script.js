@@ -12,7 +12,7 @@ function getTemps() {
     .then(data => {
       console.log('Received CPU temperature:', data.cpu);
       cputemp.innerHTML = `${data.cpu}°`;
-      gputemp.innerHTML = `${data.gpu}°`;
+      // gputemp.innerHTML = `${data.gpu}°`;
     })
     .catch(error => {
       console.error('Error fetching CPU temperature:', error);

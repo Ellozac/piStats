@@ -1,0 +1,55 @@
+:root {
+  --background_colour:  #242526;
+  --widget_bckg: #808080;
+  --text_color: #fffafa;
+  --warning_color: #ff2014;
+  --accepted_greed: #77dd77;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--text_color);
+}
+body {
+  font-size: 1vw;
+  background-color: var(--background_colour);
+}
+.widget {
+  border-radius: 2%;
+  margin: 3% 1% 3% 1%;
+  font-size: 1vw;
+  text-align: center;
+  background-color: var(--widget_bckg);
+  width: 13%;
+}
+
+.widget h3 {
+  font-size: 2vw;
+  padding-bottom: 5%;
+}
+.widgetLabel {
+  border-bottom: 0.1em solid black;
+  margin-bottom: 5%;
+  padding: 5% 0% 5% 0%;
+}
+
+nav {
+  background-color: var(--widget_bckg);
+  padding: 1% 1% 1% 1%;
+  width: 100%;
+  display: inline-flex;
+  border-bottom: 0.3em solid black;
+}
+
+#loginOpen {
+  font-size: 1vw;
+  border-radius: 3%;
+  padding: 1%;
+  border: 0.1em solid var(--text_color) ;
+  margin-left: auto;
+  margin-right: 5%;
+  background-color: var(--warning_color);
+}
